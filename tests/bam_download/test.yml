@@ -1,0 +1,8 @@
+- name: Test bam_download
+  command: nextflow run ./tests/bam_download -profile standard -entry test_BAM_DOWNLOAD -with-singularity library://jsoul/default/singlecell:latest
+  tags:
+    - bam_download
+
+
+
+

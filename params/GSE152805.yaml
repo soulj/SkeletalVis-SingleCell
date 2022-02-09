@@ -1,0 +1,5 @@
+accessionNumber: GSE152805
+species: human
+downloadSite: SRA_BAM
+chemistry: 10xv2
+replicates: true

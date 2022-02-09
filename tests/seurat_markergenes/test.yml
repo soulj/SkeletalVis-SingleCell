@@ -1,0 +1,8 @@
+- name: Test seurat_markergenes
+  command: nextflow run ./tests/seurat_markergenes/ -profile standard -entry test_SEURAT_MARKERGENES -with-singularity library://jsoul/default/singlecell:latest
+  tags:
+    - seurat_markergenes
+
+
+
+

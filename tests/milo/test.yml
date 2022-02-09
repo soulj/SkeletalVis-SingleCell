@@ -1,0 +1,8 @@
+- name: Test milo
+  command: nextflow run ./tests/milo/ -profile standard -entry test_MILO -with-singularity library://jsoul/default/singlecell:latest
+  tags:
+    - milo
+
+
+
+

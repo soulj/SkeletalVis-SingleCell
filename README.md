@@ -56,7 +56,7 @@ Create a tab seperated table with unique Sample names, SRR accession numbers (if
 
 2. Define the configuration
 
-Most parameters are set to sensible defaults within the main nextflow script, with only 4 parameters required to be altered with typical use:
+Most parameters are set to sensible defaults within the main nextflow script, with only 5 parameters required to be altered with typical use:
 
 |Parameter|Description|Options|
 | ---|---|---|
@@ -64,6 +64,7 @@ Most parameters are set to sensible defaults within the main nextflow script, wi
 |downloadSite|The site to download the raw data from if needed	|SRA, ENA, SRA_BAM|
 |species|The species the reads originate from - used to create the kallisto bus index	|human, mouse|
 |chemistry|The chemistry used for the 10x Genomics experiment	|10xv1, 10xv2, 10xv3|
+|replciates|Does the experiment contain replicated treatments to perform differential expression analysis?|true, false|
 
 
 Parameters should be defined within a yaml file. See `params/GSE152805.yaml` for an example.

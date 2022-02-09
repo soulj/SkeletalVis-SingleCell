@@ -1,0 +1,8 @@
+- name: Test kbcount
+  command: nextflow run ./tests/kbcount/ -profile standard -entry test_KB_COUNT -with-singularity library://jsoul/default/singlecell:latest
+  tags:
+    - kbcount
+
+
+
+

@@ -1,0 +1,8 @@
+- name: Test cell_annotate
+  command: nextflow run ./tests/cell_annotate/ -profile standard -entry test_CELL_ANNOTATE -with-singularity library://jsoul/default/singlecell:latest
+  tags:
+    - cell_annotate
+
+
+
+

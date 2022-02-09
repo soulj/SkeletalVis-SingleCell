@@ -1,0 +1,8 @@
+- name: Test cell_crosstalk
+  command: nextflow run ./tests/cell_crosstalk/ -profile standard -entry test_CELL_CROSSTALK -with-singularity library://jsoul/default/singlecell:latest
+  tags:
+    - cell_crosstalk
+
+
+
+

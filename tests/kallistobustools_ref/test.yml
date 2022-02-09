@@ -1,0 +1,8 @@
+- name: Test kallistobustools_ref
+  command: nextflow run ./tests/kallistobustools_ref -profile standard -entry test_KALLISTOBUSTOOLS_REF -with-singularity library://jsoul/default/singlecell:latest
+  tags:
+    - kallistobustools_ref
+
+
+
+

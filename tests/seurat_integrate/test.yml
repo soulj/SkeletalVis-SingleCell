@@ -1,0 +1,8 @@
+- name: Test seurat_integrate
+  command: nextflow run ./tests/seurat_integrate/ -profile standard -entry test_SEURAT_INTEGRATE -with-singularity library://jsoul/default/singlecell:latest
+  tags:
+    - seurat_integrate
+
+
+
+

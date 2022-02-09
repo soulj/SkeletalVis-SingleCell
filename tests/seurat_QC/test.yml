@@ -1,0 +1,8 @@
+- name: Test seurat_QC
+  command: nextflow run ./tests/seurat_QC/ -profile standard -entry test_SEURAT_QC -with-singularity library://jsoul/default/singlecell:latest
+  tags:
+    - seurat_QC
+
+
+
+

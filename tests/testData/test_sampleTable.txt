@@ -1,0 +1,4 @@
+Sample	File	Condition
+Uninjured_1	SRR14294973	Uninjured
+X3.days.post.injury_1	SRR14294974	3 days post-injury
+X7.days.post.injury_1	SRR14294975	7 days post-injury
