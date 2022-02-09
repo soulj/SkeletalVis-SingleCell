@@ -39,7 +39,7 @@ Try the pipeline on an example dataset (all inputs will be automatically downloa
 4. Download the pipeline and test on the example dataset with a single command:
 
     ```console
-     nextflow run skeletalvis.nf -profile slurm -params-file GSE152805.yaml -with-singularity library://jsoul/default/singlecell:latest
+     nextflow run soulj/SkeletalVis-SingleCell -profile slurm -params-file GSE152805.yaml -with-singularity library://jsoul/default/singlecell:latest
     ```
 ### Analyse your own data
 
@@ -72,7 +72,7 @@ Parameters should be defined within a yaml file. See `params/GSE152805.yaml` for
 3. Run the pipeline with your own parameters
 
     ```console
-     nextflow run skeletalvis.nf -profile slurm -params-file ownData.yaml -with-singularity library://jsoul/default/skeletalvis-singlecell
+     nextflow run soulj/SkeletalVis-SingleCell -profile slurm -params-file ownData.yaml -with-singularity library://jsoul/default/skeletalvis-singlecell
     ```
 
 ### Testing modules
