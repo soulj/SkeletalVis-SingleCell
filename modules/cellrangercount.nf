@@ -18,9 +18,12 @@ process CELLRANGER_COUNT {
 
   shell:
   '''
+  mkdir !{name}_fastqFiles
+  mv !{reads} !{name}_fastqFiles
+
   cellranger count --id=!{name} \
                    --transcriptome=!{transcriptome} \
-                   --fastqs=$(echo !{reads}|tr " " "\n"|sort|tr "\n" " ") \
+                   --fastqs=!{name}_fastqFiles \
                    --sample=!{name} \
                    --localcores=!{params.cpuCores} \
                    --localmem=!{params.mem}

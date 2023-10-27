@@ -13,8 +13,9 @@ include { CELLRANGER_COUNT } from '../../modules/cellrangercount.nf'
 workflow test_CELLRANGER_COUNT {
 
   def input = []
-    input = ["tinygex",
-    file("tests/testData/cellranger_tiny_fastq")]
+    input = ["tinygex",[
+    file("tests/testData/cellranger_tiny_fastq/tinygex_S1_L001_R1_001.fastq.gz"),
+    file("tests/testData/cellranger_tiny_fastq/tinygex_S1_L001_R2_001.fastq.gz")]]
 
     transcriptome = file(params.transcriptome)
 
