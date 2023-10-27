@@ -1,0 +1,9 @@
+- name: Test cellranger_count
+  command: nextflow run ./tests/cellRanger_count/ -profile standard -entry test_CELLRANGER_COUNT
+   -with-singularity docker://litd/docker-cellranger
+  tags:
+    - cellranger_count
+
+
+
+
