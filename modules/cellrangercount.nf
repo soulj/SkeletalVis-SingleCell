@@ -4,7 +4,7 @@ process CELLRANGER_COUNT {
 
   publishDir path: "${params.outdir}/cellranger", mode: 'copy'
 
-  label 'multi_big_mem'
+  label 'cellranger'
 
 
   input:
@@ -25,8 +25,8 @@ process CELLRANGER_COUNT {
                    --transcriptome=!{transcriptome} \
                    --fastqs=!{name}_fastqFiles \
                    --sample=!{name} \
-                   --localcores=!{params.cpuCores} \
-                   --localmem=!{params.mem}
+                   --localcores=!{task.cpus} \
+                   --localmem=!{task.mem.giga}
   '''
 
 }
