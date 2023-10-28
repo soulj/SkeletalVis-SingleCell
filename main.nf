@@ -52,6 +52,8 @@ params.replicates = false
 //group names to use for liana cell communication analysis
 params.cellGroups = ["SingleR.labels","seurat_clusters"]
 
+//assume human for the default cellranger transcriptome
+params.cellRangerTranscriptome = "$params.referenceDir/refdata-gex-GRCh38-2020-A"
 
 ////////////
 //HELP
@@ -219,6 +221,44 @@ workflow  {
 
 
   }
+
+  //workflow to perform single cell-seq  from fastq files
+//including alignment, qc, clustering and cell type annotation
+workflow CellRanger {
+
+  //read in the sample table for the experiment
+  sampleTable = file( params.sampleTable )
+
+
+  //download the fastq files if not present in the fastq dir
+  if(downloadFiles){
+
+    rawData = downloadRNASeqData(sampleTable).fastqFiles.flatten()
+
+    } else {
+
+      rawData = channel.fromPath( params.fastqFileDir).view()
+
+    }
+
+
+    //group the reads into pairs based on the file name
+    groupedReads = rawData.map { file ->
+      def key = file.name.toString().split("_R\\d*")[0]
+      return tuple(key, file)
+    }
+    .groupTuple(sort:true).view()
+
+    //map the fastq files to the sampleID and group by sampleID
+    samples_grouped = FASTQTOSAMPLEID(groupedReads,sampleTable)
+    .groupTuple()
+    .map{id,fastq -> tuple(id,fastq.flatten().sort())}.view()
+
+    //map the reads to the transcriptome to with cellranger
+    //to create cell x gene matrix and qc report for each sample
+    transcriptome = file(params.cellRangerTranscriptome)
+
+    counts = CELLRANGER_COUNT(samples_grouped,transcriptome)
 
 
 
