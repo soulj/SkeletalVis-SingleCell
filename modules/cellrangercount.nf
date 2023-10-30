@@ -13,20 +13,24 @@ process CELLRANGER_COUNT {
   path(transcriptome)
 
   output:
-
+  path ("${name}/outs")
   tuple val(name), path ("${name}/outs/raw_feature_bc_matrix")  , emit: counts_unfiltered
 
   shell:
   '''
   mkdir !{name}_fastqFiles
   mv !{reads} !{name}_fastqFiles
-
-  cellranger count --id=!{name} \
+  
+  s="!{reads}"
+  sampleName="${s%%_*}"
+  
+   cellranger count --id=!{name} \
                    --transcriptome=!{transcriptome} \
                    --fastqs=!{name}_fastqFiles \
-                   --sample=!{name} \
+                   --sample=$sampleName \
                    --localcores=!{task.cpus} \
-                   --localmem=!{task.mem.giga}
+                   --localmem=!{task.memory.giga} \
+                   --no-bam
   '''
 
 }

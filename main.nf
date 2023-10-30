@@ -98,6 +98,7 @@ include { FASTQC } from './modules/fastQC'
 include { MULTIQC } from './modules/multiQC'
 include { KALLISTOBUSTOOLS_REF } from './modules/kallistobustools_ref'
 include { KB_COUNT } from './modules/kbcount.nf'
+include { CELLRANGER_COUNT } from './modules/cellrangercount.nf'
 include { SEURAT_QC } from './modules/seurat_QC'
 include { SEURAT_CELLCYCLENORMALISE } from './modules/seurat_cellCycleNormalise'
 include { SEURAT_MARKERGENES } from './modules/seurat_markergenes'
@@ -261,4 +262,4 @@ workflow CellRanger {
     counts = CELLRANGER_COUNT(samples_grouped,transcriptome)
 
 
-
+}
